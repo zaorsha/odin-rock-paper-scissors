@@ -12,22 +12,22 @@ let playerChoice = playerSelection().toLowerCase();
 
 let result;
 
-if (computerChoice == playerChoice) {
-    result = "Draw! Try again";
-} else if (computerChoice == "rock" || playerChoice == "paper") {
-    result = "Player wins!";
-} else if (computerChoice == "rock" || playerChoice == "scissors") {
-    result = "Computer wins!";
-} else if (computerChoice == "paper" || playerChoice == "rock") {
-    result = "Computer wins!";
-} else if (computerChoice == "paper" || playerChoice == "scissors") {
-    result = "Player wins!";
-} else if (computerChoice == "scissors" || playerChoice == "rock") {
-    result = "Player wins!";
-} else if (computerChoice == "scissors" || playerChoice == "paper") {
-    result = "Computer wins!";
-} else {
-    result = "Something's not right...";
+switch (true) {
+    case computerChoice == playerChoice:
+        result = "Draw! Try again.";
+        break;
+    case computerChoice == "rock" || playerChoice == "paper":
+    case computerChoice == "paper" || playerChoice == "scissors":
+    case computerChoice == "scissors" || playerChoice == "rock":
+        result = "Player wins!";
+        break;
+    case computerChoice == "rock" || playerChoice == "scissors":
+    case computerChoice == "paper" || playerChoice == "rock":
+    case computerChoice == "scissors" || playerChoice == "paper":
+        result = "Computer wins!";
+        break;
+    default:
+        result = "Something's not right...";
 }
 
 console.log(`Computer chooses ${computerChoice}...`);
