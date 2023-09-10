@@ -3,9 +3,9 @@ function getComputerChoice() {
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
-function playerSelection() {
-     return prompt("Your move!");
-}
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
 
 function findWinner(pScore, cScore) {
     if (pScore > cScore) {
@@ -17,16 +17,27 @@ function findWinner(pScore, cScore) {
     }
 }
 
-let computerChoice;
 let playerChoice;
+
+// Function to return string for whichever
+// button was clicked
+
+function playerSelection() {
+    rockBtn.addEventListener('click', () => {
+        return 'rock';
+    });
+}
+
+let computerChoice;
 let computerScore = 0;
 let playerScore = 0;
 let result;
 
 function game() {
-    for (let i = 0; i <= 4; i++) {
+
+
         computerChoice = getComputerChoice();
-        playerChoice = playerSelection().toLowerCase();
+        playerChoice = playerSelection();
 
         switch (true) {
             case computerChoice == playerChoice:
@@ -53,6 +64,7 @@ function game() {
     }
 }
 
-game()
+
+game();
 console.log(`The final score is... Player: ${playerScore} | Computer: ${computerScore}`);
 console.log(findWinner(playerScore,computerScore));
