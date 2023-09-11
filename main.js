@@ -28,12 +28,21 @@ let computerScore = 0;
 let playerScore = 0;
 let result;
 
+
+// Run the game only when a button is clicked
+// declare winner if either score == 5
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playerChoice = button.innerText.toLowerCase();
         computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
         game();
+
+        if (playerScore == 5 || computerScore == 5) {
+            console.log(`The final score is... Player: ${playerScore} | Computer: ${computerScore}`);
+            console.log(findWinner(playerScore,computerScore));
+        }
     });
 })
 
@@ -69,5 +78,3 @@ function game() {
 
 
 
-console.log(`The final score is... Player: ${playerScore} | Computer: ${computerScore}`);
-console.log(findWinner(playerScore,computerScore));
