@@ -8,6 +8,9 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
+const computerChooses = document.querySelector('.computerChooses');
+const winnerText = document.querySelector('.winnerText');
+
 function findWinner(pScore, cScore) {
     if (pScore > cScore) {
         return "You win the game!";
@@ -72,8 +75,8 @@ function playRound(playerChoice, computerChoice) {
 
 function game() {        
 
-        console.log(`Computer chooses ${computerChoice}...`);
-        console.log(result);
+        computerChooses.innerText = `Computer chooses ${computerChoice}...`;
+        winnerText.innerText = result;
     }
 
 

@@ -8,3 +8,35 @@
     color: white;
 }
 
+div {
+    border: 1px solid black;
+}
+
+.title {
+    display:flex;
+    justify-content: center;
+}
+
+.btnDiv {
+    display:flex;
+    flex:1;
+    margin-bottom:20px;
+}
+
+.button {
+    margin:auto;
+}
+
+.scores {
+    display: flex;
+}
+
+.playerDiv, .computerDiv {
+    width: 50%;
+    padding: 10px 0 30px 10px;
+}
+
+.computerChooses, .winnerText {
+    min-height: 40px;
+    margin-bottom:20px;
+}
