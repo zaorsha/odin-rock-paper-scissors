@@ -11,6 +11,12 @@ const scissorsBtn = document.querySelector('#scissors');
 const computerChooses = document.querySelector('.computerChooses');
 const winnerText = document.querySelector('.winnerText');
 
+const finalScore = document.querySelector('.finalScore');
+const theWinner = document.querySelector('.theWinner');
+
+const playerScoreDiv = document.querySelector('.playerScore');
+const computerScoreDiv = document.querySelector('.computerScore');
+
 function findWinner(pScore, cScore) {
     if (pScore > cScore) {
         return "You win the game!";
@@ -43,8 +49,8 @@ buttons.forEach((button) => {
         game();
 
         if (playerScore == 5 || computerScore == 5) {
-            console.log(`The final score is... Player: ${playerScore} | Computer: ${computerScore}`);
-            console.log(findWinner(playerScore,computerScore));
+            finalScore.innerText = `The final score is... Player: ${playerScore} | Computer: ${computerScore}`;
+            theWinner.innerText = findWinner(playerScore,computerScore);
         }
     });
 })
@@ -60,12 +66,14 @@ function playRound(playerChoice, computerChoice) {
         case computerChoice == "scissors" && playerChoice == "rock":
             result = "Player wins!";
             playerScore += 1;
+            playerScoreDiv.innerText = playerScore.toString();
             break;
         case computerChoice == "rock" && playerChoice == "scissors":
         case computerChoice == "paper" && playerChoice == "rock":
         case computerChoice == "scissors" && playerChoice == "paper":
             result = "Computer wins!";
             computerScore += 1;
+            computerScoreDiv.innerText = computerScore.toString();
             break;
         default:
             result = "Something's not right...";
