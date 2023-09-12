@@ -17,6 +17,7 @@ const theWinner = document.querySelector('.theWinner');
 const playerScoreDiv = document.querySelector('.playerScore');
 const computerScoreDiv = document.querySelector('.computerScore');
 
+
 function findWinner(pScore, cScore) {
     if (pScore > cScore) {
         return "You win the game!";
@@ -29,6 +30,8 @@ function findWinner(pScore, cScore) {
 
 let playerChoice;
 
+
+
 // Function to return string for whichever
 // button was clicked
 
@@ -36,7 +39,18 @@ let computerChoice;
 let computerScore = 0;
 let playerScore = 0;
 let result;
+let round = 1;
 
+// Create variable for each round score that changes 
+let roundPlayer = document.querySelector(`.round${round.toString()}Player`);
+let roundComputer = document.querySelector(`.round${round.toString()}Computer`);
+
+let scoreFinalPlayer = document.querySelector('.scoreFinalPlayer');
+let scoreFinalComputer = document.querySelector('.scoreFinalComputer');
+
+// initialise the 'total' score that will add up each round
+let scoreFinalPlayerNum = 0;
+let scoreFinalComputerNum = 0;
 
 // Run the game only when a button is clicked
 // declare winner if either score == 5
@@ -66,6 +80,15 @@ function playRound(playerChoice, computerChoice) {
         case computerChoice == "scissors" && playerChoice == "rock":
             result = "Player wins!";
             playerScore += 1;
+            roundPlayer = document.querySelector(`.round${round.toString()}Player`);
+            roundComputer = document.querySelector(`.round${round.toString()}Computer`);
+            roundPlayer.innerText = '10';
+            roundComputer.innerText = '9';
+            scoreFinalPlayerNum += 10;
+            scoreFinalComputerNum += 9;
+            scoreFinalPlayer.innerText = scoreFinalPlayerNum.toString();
+            scoreFinalComputer.innerText = scoreFinalComputerNum.toString();
+            round += 1;
             playerScoreDiv.innerText = playerScore.toString();
             break;
         case computerChoice == "rock" && playerChoice == "scissors":
@@ -73,6 +96,15 @@ function playRound(playerChoice, computerChoice) {
         case computerChoice == "scissors" && playerChoice == "paper":
             result = "Computer wins!";
             computerScore += 1;
+            roundComputer = document.querySelector(`.round${round.toString()}Computer`);
+            roundPlayer = document.querySelector(`.round${round.toString()}Player`);
+            roundComputer.innerText = '10';
+            roundPlayer.innerText = '9';
+            scoreFinalComputerNum += 10;
+            scoreFinalPlayerNum += 9;
+            scoreFinalPlayer.innerText = scoreFinalPlayerNum.toString();
+            scoreFinalComputer.innerText = scoreFinalComputerNum.toString();
+            round += 1;
             computerScoreDiv.innerText = computerScore.toString();
             break;
         default:

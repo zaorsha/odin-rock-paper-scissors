@@ -44,3 +44,15 @@ div {
     min-height: 40px;
     margin-bottom:20px;
 }
+
+.scoreboardNew {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.roundOne, .roundTwo,
+.roundThree, .roundFour,
+.roundFive, .scoreFinal {
+    min-width:40px;
+}
